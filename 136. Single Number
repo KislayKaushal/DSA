@@ -1,0 +1,37 @@
+class Solution {
+public:
+//This method is the Bitwise method:
+//Time  complexity: O(N); Linear 
+//Space Complexity: O(1); Constant
+    int singleNumber(vector<int>& nums) {
+        int ans=0;
+        for(auto x : nums){
+            ans=ans^x;
+        }
+        return ans;
+    }
+};
+
+
+class Solution {
+public:
+//This method is not the ideal method:
+//Time  complexity: O(N); Linear 
+//Space Complexity: O(N); Not Constant
+    int singleNumber(vector<int>& nums) {
+        int num=0;
+        if(nums.size()==1){
+            return nums[0];
+        }
+        map<int,int> freqCounter;
+        for(auto i : nums){
+            freqCounter[i]++;
+        }
+        for(auto x : freqCounter){
+            if(x.second==1){
+                return x.first;
+            }
+        }
+        return -1;
+    }
+};
