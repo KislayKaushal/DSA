@@ -1,0 +1,16 @@
+class Solution {
+public:
+//Time complexity: O(n)
+//Space complexity: O(1)
+    string convertToTitle(int columnNumber) {
+        string ans;
+        while(columnNumber){
+            columnNumber--;
+            char m=columnNumber%26;
+            columnNumber/=26;
+            ans+='A'+m;
+        }
+        reverse(ans.begin(), ans.end());
+        return ans;
+    }
+};
