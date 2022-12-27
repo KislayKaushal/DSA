@@ -1,0 +1,20 @@
+class Solution {
+public:
+//Using hashMap method 
+//Time complexity: O(n)
+//Space cmplexity: O(n)
+    bool isAnagram(string s, string t) {
+        if(s.length()!=t.length()) return false;
+        map<char,int> list;
+        for(int i=0; i<s.length(); i++){
+            list[s[i]]++;
+            list[t[i]]--;
+        }
+        for(auto x:list){
+            if(x.second!=0){
+                return false;
+            }
+        }
+        return true;
+    }
+};
