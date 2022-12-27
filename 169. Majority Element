@@ -1,0 +1,22 @@
+class Solution {
+public:
+//This function uses Moore's voting algorithm
+//Time complexity: O(n)
+//Space Complexity: O(1)
+    int majorityElement(vector<int>& nums) {
+        int maj_element=0; int count=1;
+        for(int i=1; i<nums.size(); i++){
+            if(nums[maj_element]==nums[i]){
+                count++;
+            }else{
+                count--;
+            }
+            if(count==0){
+                maj_element=i;
+                count=1;
+            }
+
+        }
+        return nums[maj_element];
+    }
+};
