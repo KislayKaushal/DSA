@@ -1,0 +1,12 @@
+class Solution {
+public:
+//Time complexity: O(n)
+//Space complexity: O(1)
+    int firstUniqChar(string s) {
+        int alpha[123]={0};
+        for(int c: s) alpha[c]++;
+        for(int i = 0; i < s.size(); i++)
+            if(alpha[s[i]]==1) return i;
+        return -1;
+    }
+};
